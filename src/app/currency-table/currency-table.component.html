@@ -1,0 +1,11 @@
+<div class="row m-3" title="currency table">
+  <div
+    *ngFor="let currency of currenciesValues"
+    className="col-xs-6 col-sm-3 col-md-2 col-xxl-1 m-0 border rounded text-center +
+        {{((currency.CharCode===selectedCurrencyName1 && 'bg-info') || (currency.CharCode===selectedCurrencyName2 && 'text-light bg-secondary'))
+        }}"
+    key={currency.ID}
+  >
+    {{currency.CharCode}} {{(currency.Value/selectedCurrency1Value).toFixed(2)}}
+  </div>
+</div>

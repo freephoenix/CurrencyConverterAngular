@@ -1,0 +1,20 @@
+<div id="main" class="input-group">
+  <input
+    id={{name}}
+    type="number"
+    class="form-control d-inline-block"
+    min='1'
+    value={{selectedCurrencyNumber}}
+    autofocus={{autoFocus}}
+    (change)="onChangeNumber($event)"
+  />
+  <label class="input-group-text {{color}}" htmlFor={{name}}>{{name}}</label>
+  <select
+    class="form-select d-inline-block currencySelect"
+    (change)="onChangeName($event)"
+  >
+    <option *ngFor="let currencyName of currenciesNames" [selected]="currencyName === selectedCurrencyName" value={{currencyName}}>
+      {{currencyName}}
+    </option>
+  </select>
+</div>
