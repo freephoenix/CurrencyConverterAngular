@@ -1,12 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CurrencyInputAndSelectComponent } from './currency-input-and-select/currency-input-and-select.component';
+import { CurrencyTableComponent } from './currency-table/currency-table.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        CurrencyInputAndSelectComponent,
+        CurrencyTableComponent
       ],
+      imports: [HttpClientTestingModule]
     }).compileComponents();
   });
 
@@ -26,6 +32,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('currency-converter-angular app is running!');
+    expect(compiled.querySelector('[title="currency converter title"]')?.textContent).toContain('Currency converter');
   });
 });
